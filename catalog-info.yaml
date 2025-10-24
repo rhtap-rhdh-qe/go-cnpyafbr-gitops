@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-cnpyafbr-gitops
+  description: This is GitOps manifest for go-cnpyafbr   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-cnpyafbr
+    backstage.io/kubernetes-id: go-cnpyafbr 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-cnpyafbr
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-cnpyafbr
